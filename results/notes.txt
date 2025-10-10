@@ -4,5 +4,21 @@ Do the benchmark:
 If there's time, worth getting better results with more iterations:
 ./core-to-core-latency 30000 1000 --csv > output.csv
 
+
 Get cpuid
 cat /proc/cpuinfo | grep 'model name' | head -n 1 | sed 's/^.*\t: //g'
+ or
+lscpu | grep 'Model name' | head -n 1 
+
+Get heat map:
+vi results.py
+Modify the following section
+
+cpu = "Intel(R) Xeon Phi(TM) CPU 7210 @ 1.30GHz (64 cores, Knights Landing)"
+fname = "Intel(R) Xeon Phi(TM) CPU 7210 @ 1.30GHz.csv"
+pngname = "Intel(R) Xeon Phi(TM) CPU 7210 @ 1.30GHz.png"
+m = load_data(fname)
+show_heapmap(m, title=cpu, pngname=pngname)
+
+
+python3 results.py
