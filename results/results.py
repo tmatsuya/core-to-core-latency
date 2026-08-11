@@ -23,7 +23,9 @@ def show_heapmap(m, title=None, subtitle=None, vmin=None, vmax=None, yticks=True
     fig.patch.set_facecolor('w')
     
     plt.imshow(np.full_like(m, 0.7), vmin=0, vmax=1, cmap = 'gray') # for the alpha value
-    plt.imshow(m, cmap = plt.cm.get_cmap('viridis'), vmin=vmin, vmax=vmax)
+#old    plt.imshow(m, cmap = plt.cm.get_cmap('viridis'), vmin=vmin, vmax=vmax)
+    plt.imshow(m, cmap = plt.colormaps['viridis'], vmin=vmin, vmax=vmax)
+
     
     fontsize = 9 if vmax >= 100 else 10
 
